@@ -133,7 +133,7 @@ begin
     // OnShow
     procedure
     begin
-      // Alterar layout dependendo da operação
+      // Alterar layout dependendo da operaÃ§Ã£o
       case FStateFormEnum of
         // Inserir
         esStore: Begin
@@ -188,49 +188,9 @@ begin
   );
 end;
 
-//var
-//  lEntity: ISalesOrderEntity;
-//begin
-//  Result := Self;
-//  pgc.ActivePageIndex := 0;
-//
-//  // Alterar layout dependendo da operação
-//  case FStateFormEnum of
-//    // Inserir
-//    esStore: Begin
-//      lblTitle.Caption := TITLE_NAME + ' (Incluindo...)';
-//      dtsSalesOrder.DataSet.Append;
-//    End;
-//    // Editar
-//    esUpdate: Begin
-//      lblTitle.Caption := TITLE_NAME + ' (Editando...)';
-//    End;
-//    // Visualizar
-//    esNone: Begin
-//      lblTitle.Caption := TITLE_NAME + ' (Visualizando...)';
-//      pnlSave.Visible  := False;
-//    End;
-//  end;
-//
-//  Try
-//    if (FStateFormEnum in [esUpdate, esNone]) then
-//    begin
-//      lEntity := TSalesOrderController.Make.Show(FCurrentPk);
-//      TSalesOrderMapper.EntityToDataSet(lEntity, dtsSalesOrder.DataSet, dtsSalesOrderProduct.DataSet);
-//      dtsSalesOrder.DataSet.Edit;
-//      SumSalesOrderProduct;
-//    end;
-//  except on E: Exception do
-//    raise Exception.Create(E.Message);
-//  end;
-//
-//  if edtcustomer_id.CanFocus then
-//    edtcustomer_id.SetFocus;
-//end;
-
 procedure TSalesOrderCreateUpdateView.btnCancelClick(Sender: TObject);
 begin
-  if not (TYesOrNoView.AShowModal('Deseja cancelar operação') = mrOk) then
+  if not (TYesOrNoView.AShowModal('Deseja cancelar operaÃ§Ã£o') = mrOk) then
     Abort;
 
   FCurrentPk  := -1;
@@ -244,7 +204,7 @@ var
   lTypeNotification: TTypeNotificationEnum;
   lError: String;
 begin
-  // Não prosseguir se estiver carregando
+  // NÃ£o prosseguir se estiver carregando
   if LoadingSave or LoadingForm then
     Exit;
 
@@ -329,72 +289,11 @@ begin
   );
 end;
 
-//var
-//  lEntityToSave: TSalesOrderEntity;
-//  lStoreResult: Either<string, Int64>;
-//  lUpdateResult: Either<string, Boolean>;
-//  lError: String;
-//  lCtrl: ISalesOrderController;
-//  lMsgNotification: String;
-//  lTypeNotification: TTypeNotificationEnum;
-//begin
-//  if not pnlSave.Visible then Exit;
-//  btnFocus.SetFocus;
-//
-//  try
-//    pnlBackground.Enabled := False;
-//    lCtrl := TSalesOrderController.Make;
-//
-//    // Salvar em memória
-//    if (dtsSalesOrder.DataSet.State in [dsInsert, dsEdit]) then
-//      dtsSalesOrder.DataSet.Post;
-//
-//    // Mapear dados para Entity
-//    lEntityToSave := TSalesOrderEntity.Create;
-//    TSalesOrderMapper.DataSetToEntity(dtsSalesOrder.DataSet, dtsSalesOrderProduct.DataSet, lEntityToSave);
-//
-//    // Incluir ou Alterar
-//    case FStateFormEnum of
-//      esStore: Begin
-//        lStoreResult := lCtrl.Store(lEntityToSave);
-//        if lStoreResult.Match then
-//        begin
-//          FCurrentPk        := lStoreResult.Right;
-//          lMsgNotification  := 'Registro salvo com sucesso.';
-//          lTypeNotification := tneSuccess;
-//        end else
-//          lError := lStoreResult.Left;
-//      end;
-//      esUpdate: Begin
-//        lUpdateResult := lCtrl.Update(lEntityToSave, FCurrentPk);
-//        if lUpdateResult.Match then
-//        begin
-//          lMsgNotification  := 'Registro alterado com sucesso.';
-//          lTypeNotification := tneWarning;
-//        end else
-//          lError := lUpdateResult.Left;
-//      end;
-//    end;
-//
-//    if not lError.Trim.IsEmpty then
-//    Begin
-//      TAlertView.AShowModal(lError);
-//      dtsSalesOrder.DataSet.Edit;
-//      Abort;
-//    End;
-//
-//    NotificationView.Execute(lMsgNotification, lTypeNotification);
-//    ModalResult := mrOk;
-//  finally
-//    pnlBackground.Enabled := True;
-//  end;
-//end;
-
 procedure TSalesOrderCreateUpdateView.btnSelectedProductCancelModifyClick(Sender: TObject);
 begin
   ClearProductSelectedFields;
   IsChangingProductData := False;
-  NotificationView.Execute('Alteração do Produto abortada.', tneInfo);
+  NotificationView.Execute('AlteraÃ§Ã£o do Produto abortada.', tneInfo);
   if edtSelectedProductId.CanFocus then
     edtSelectedProductId.SetFocus;
 end;
@@ -404,8 +303,8 @@ begin
   if not KeepGoingToHandleSalesOrderProduct then
     Exit;
 
-  // Mensagem de Sim/Não
-  if not (TYesOrNoView.AShowModal('Deseja apagar item selecionado?', 'Exclusão') = mrOK) then
+  // Mensagem de Sim/NÃ£o
+  if not (TYesOrNoView.AShowModal('Deseja apagar item selecionado?', 'ExclusÃ£o') = mrOK) then
     Exit;
 
   dtsSalesOrderProduct.DataSet.Delete;
@@ -421,13 +320,13 @@ begin
   Try
     pnlBackground.Enabled := False;
 
-    // Validar Campos antes de lançar
+    // Validar Campos antes de lanÃ§ar
     lError := EmptyStr;
-    if (THlp.StrFloat(edtSelectedProductQuantity.Text) <= 0)  then lError := lError + '  Quantidade para produto não informado!' + #13;
-    if (THlp.StrFloat(edtSelectedProductUnitPrice.Text) <= 0) then lError := lError + '  Valor unitário para produto não informado!' + #13;
+    if (THlp.StrFloat(edtSelectedProductQuantity.Text) <= 0)  then lError := lError + '  Quantidade para produto nÃ£o informado!' + #13;
+    if (THlp.StrFloat(edtSelectedProductUnitPrice.Text) <= 0) then lError := lError + '  Valor unitÃ¡rio para produto nÃ£o informado!' + #13;
     if not lError.Trim.IsEmpty then
     begin
-      TAlertView.AShowModal('No lançamento do produto' + #13 + lError);
+      TAlertView.AShowModal('No lanÃ§amento do produto' + #13 + lError);
       Abort;
     end;
 
@@ -472,30 +371,30 @@ var
 begin
   inherited;
 
-  // Validar Campos antes de lançar
+  // Validar Campos antes de lanÃ§ar
   lPk := THlp.StrInt(edtSelectedProductId.Text);
   lError := EmptyStr;
-  if (lPk <= 0)                                             then lError := lError + '  Cód. do Produto não informado!' + #13;
-  if (THlp.StrFloat(edtSelectedProductQuantity.Text) <= 0)  then lError := lError + '  Quantidade para produto não informado!' + #13;
-  if (THlp.StrFloat(edtSelectedProductUnitPrice.Text) <= 0) then lError := lError + '  Valor unitário para produto não informado!' + #13;
+  if (lPk <= 0)                                             then lError := lError + '  CÃ³d. do Produto nÃ£o informado!' + #13;
+  if (THlp.StrFloat(edtSelectedProductQuantity.Text) <= 0)  then lError := lError + '  Quantidade para produto nÃ£o informado!' + #13;
+  if (THlp.StrFloat(edtSelectedProductUnitPrice.Text) <= 0) then lError := lError + '  Valor unitÃ¡rio para produto nÃ£o informado!' + #13;
   if not lError.Trim.IsEmpty then
   begin
-    TAlertView.AShowModal('No lançamento do produto' + #13 + lError);
+    TAlertView.AShowModal('No lanÃ§amento do produto' + #13 + lError);
     Abort;
   end;
 
   try
     pnlBackground.Enabled := False;
 
-    // Localizar produto novamente antes de lançar (Evita erro por parte do usuário)
+    // Localizar produto novamente antes de lanÃ§ar (Evita erro por parte do usuÃ¡rio)
     lProductEntity := TProductController.Make.Show(lPk);
     if not Assigned(lProductEntity) then
     begin
-      NotificationView.Execute('Produto não encontrado. Cód: "' + lPk.ToString+'"', tneError);
+      NotificationView.Execute('Produto nÃ£o encontrado. CÃ³d: "' + lPk.ToString+'"', tneError);
       Exit;
     end;
 
-    // Lançar produto
+    // LanÃ§ar produto
     With dtsSalesOrderProduct.DataSet do
     begin
       Append;
@@ -605,7 +504,7 @@ begin
     if not Assigned(lProductEntity) then
     begin
       ClearProductSelectedFields;
-      NotificationView.Execute('Produto não encontrado. Cód: "' + lPk.ToString+'"', tneError);
+      NotificationView.Execute('Produto nÃ£o encontrado. CÃ³d: "' + lPk.ToString+'"', tneError);
       Exit;
     end;
 
@@ -658,7 +557,7 @@ procedure TSalesOrderCreateUpdateView.FormKeyDown(Sender: TObject; var Key: Word
 begin
   inherited;
 
-  // Esc - Cancelar alteração do produto
+  // Esc - Cancelar alteraÃ§Ã£o do produto
   if (Key = VK_ESCAPE) and (FIsChangingProductData) then
   begin
     btnSelectedProductCancelModifyClick(Sender);
