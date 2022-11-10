@@ -80,7 +80,6 @@ begin
   Result.Data.FromDataSet(lQry.DataSet);
   lCurrentPageRecordCount := Result.Data.DataSet.RecordCount;
 
-  // Contar registros sem paginação
   if Assigned(APageFilter) then
   begin
     lSQLWithoutPaginate := 'select count(*) ' + copy(lSQLWithoutPaginate, Pos('from', lSQLWithoutPaginate));
