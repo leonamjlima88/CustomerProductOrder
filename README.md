@@ -22,7 +22,7 @@ A estrutura das pastas foi adotado como modular.
 
 Neste projeto será encontrado design patterns como Controller, Service, Repository, Factory, Either, Strategy. Muitos princípios do solid como Responsabilidade única, Inversão de dependências, princípio de aberto e fechado.
 
-Também foi criado um centralizador de exceções. Não foram criadas exceções personalizadas ;/.
+Também foi criado um centralizador de exceções.
 
 Classe genérica para consulta de dados para qualquer tabela do sistema.
 
@@ -37,3 +37,5 @@ Versionamento de banco de dados e scripts em lote. Não foi criado método de ro
 E muito outros recursos em um projeto simples.
 
 Poderia ser melhor? Lógico! Sempre! ;D
+
+Faltou criar exceções personalizadas, testes unitários, repositório em memória estilo mock para testes sem acesso a dados. Muita coisa pode ser aprimorado. Este é apenas um projeto simples realizando algumas coisas bem interessantes.
