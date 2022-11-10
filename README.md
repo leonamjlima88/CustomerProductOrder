@@ -26,11 +26,11 @@ Também foi criado um centralizador de exceções.
 
 Classe genérica para consulta de dados para qualquer tabela do sistema.
 
-Repositório totalmente flexivel para troca de banco de dados a qualquer momento.
+Repositório totalmente flexivel para troca de driver de banco de dados a qualquer momento.
 
 Conexão com base de dados flexivel para uso de Threads, setando apenas uma flag na implementação do controller.
 
-Uso de Threads na abertura e fechamento de cadastro de registros. No fuc%$# freeze!
+Uso de Threads na abertura e fechamento de cadastro de registros.
 
 Versionamento de banco de dados e scripts em lote. Não foi criado método de rollback por lote de scripts, mas é bem possível fazer, está engatilhado.
 
