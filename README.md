@@ -28,5 +28,10 @@ Classe genérica para consulta de dados para qualquer tabela do sistema.
 
 Repositório totalmente flexivel para troca de banco de dados a qualquer momento.
 
+Conexão com base de dados flexivel para uso de Threads, setando apenas uma flag na implementação do controller.
+
+Uso de Threads na abertura e fechamento de cadastro de registros. No fuc%$# freeze!
+
 E muito outros recursos em um projeto simples.
 
+Poderia ser melhor? Lógico! Sempre! ;D
