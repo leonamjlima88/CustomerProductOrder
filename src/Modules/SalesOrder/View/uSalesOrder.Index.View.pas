@@ -363,8 +363,7 @@ end;
 procedure TSalesOrderIndexView.DoSearch(ACurrentPage: Integer);
 var
   lIndexResult: IIndexResult;
-  lPageFilter: IPageFilter;
-  lAux, lAux2: String;
+  lPageFilter: IPageFilter;  
 begin
   // Filtragem dos dados
   Try
@@ -395,13 +394,10 @@ begin
     // Período de Emissão
     if (edtFilterCreatedAtStart.Date > 0) and (edtFilterCreatedAtEnd.Date > 0) then
     begin
-      lAux   := THlp.FormatDateTimeWithFirstHour(edtFilterCreatedAtStart.Date);
-      lAux2  := THlp.FormatDateTimeWithLastHour(edtFilterCreatedAtEnd.Date);
       lPageFilter
-        .AddWhere('sales_order.created_at', coGreaterOrEqual, lAux)
-        .AddWhere('sales_order.created_at', coLessOrEqual,    lAux2);
+        .AddWhere('sales_order.created_at', coGreaterOrEqual, THlp.FormatDateTimeWithFirstHour(edtFilterCreatedAtStart.Date))
+        .AddWhere('sales_order.created_at', coLessOrEqual,    THlp.FormatDateTimeWithLastHour(edtFilterCreatedAtEnd.Date));
     end;
-
     // -------------------------------------------------------------------------
 
     // Efetuar Pesquisa
