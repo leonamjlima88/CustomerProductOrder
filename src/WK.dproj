@@ -125,7 +125,7 @@
         <DCCReference Include="Config\Migration\u01CreateCustomerTable.Migration.pas"/>
         <DCCReference Include="Config\Migration\uMigration.Base.pas"/>
         <DCCReference Include="Config\Migration\uMigration.Info.pas"/>
-        <DCCReference Include="Modules\Customer\SQLBuilder\uCustomer.SQLBuilder.MySQL.pas"/>
+        <DCCReference Include="Modules\Customer\SQLBuilder\MySQL\uCustomer.SQLBuilder.MySQL.pas"/>
         <DCCReference Include="Modules\Customer\SQLBuilder\uCustomer.SQLBuilder.Interfaces.pas"/>
         <DCCReference Include="Config\Migration\uMigration.Helper.pas"/>
         <DCCReference Include="Modules\Customer\Controller\uCustomer.Controller.Interfaces.pas"/>
@@ -136,7 +136,7 @@
         <DCCReference Include="Modules\Customer\Domain\Service\uCustomer.Service.pas"/>
         <DCCReference Include="Modules\Customer\Repository\uCustomer.Repository.Interfaces.pas"/>
         <DCCReference Include="Modules\Customer\Repository\uCustomer.Repository.Factory.pas"/>
-        <DCCReference Include="Modules\Customer\Repository\uCustomer.Repository.SQL.pas"/>
+        <DCCReference Include="Modules\Customer\Repository\RepositorySQL\uCustomer.Repository.SQL.pas"/>
         <DCCReference Include="Modules\Customer\Domain\Validator\uCustomer.Validator.Interfaces.pas"/>
         <DCCReference Include="Modules\Customer\Domain\Validator\uCustomer.Validator.pas"/>
         <DCCReference Include="Modules\Customer\Domain\Entity\uCustomer.Entity.Interfaces.pas"/>
@@ -185,7 +185,7 @@
             <Form>ProductIndexView</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Modules\Product\SQLBuilder\uProduct.SQLBuilder.MySQL.pas"/>
+        <DCCReference Include="Modules\Product\SQLBuilder\MySQL\uProduct.SQLBuilder.MySQL.pas"/>
         <DCCReference Include="Modules\Product\ViewModel\uProduct.ViewModel.pas"/>
         <DCCReference Include="Modules\Product\ViewModel\uProduct.ViewModel.Interfaces.pas"/>
         <DCCReference Include="Modules\Product\View\uProduct.CreateUpdate.View.pas">
@@ -193,7 +193,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Modules\Product\SQLBuilder\uProduct.SQLBuilder.Interfaces.pas"/>
-        <DCCReference Include="Modules\Product\Repository\uProduct.Repository.SQL.pas"/>
+        <DCCReference Include="Modules\Product\Repository\RepositorySQL\uProduct.Repository.SQL.pas"/>
         <DCCReference Include="Modules\Product\Repository\uProduct.Repository.Interfaces.pas"/>
         <DCCReference Include="Modules\Product\Repository\uProduct.Repository.Factory.pas"/>
         <DCCReference Include="Modules\Product\Domain\Validator\uProduct.Validator.pas"/>
@@ -206,11 +206,11 @@
         <DCCReference Include="Modules\Product\Controller\uProduct.Controller.pas"/>
         <DCCReference Include="Modules\Product\Controller\uProduct.Controller.Interfaces.pas"/>
         <DCCReference Include="Config\Migration\u02CreateProductTable.Migration.pas"/>
-        <DCCReference Include="Modules\SalesOrder\SQLBuilder\uSalesOrder.SQLBuilder.MySQL.pas"/>
+        <DCCReference Include="Modules\SalesOrder\SQLBuilder\MySQL\uSalesOrder.SQLBuilder.MySQL.pas"/>
         <DCCReference Include="Modules\SalesOrder\ViewModel\uSalesOrder.ViewModel.pas"/>
         <DCCReference Include="Modules\SalesOrder\ViewModel\uSalesOrder.ViewModel.Interfaces.pas"/>
         <DCCReference Include="Modules\SalesOrder\SQLBuilder\uSalesOrder.SQLBuilder.Interfaces.pas"/>
-        <DCCReference Include="Modules\SalesOrder\Repository\uSalesOrder.Repository.SQL.pas"/>
+        <DCCReference Include="Modules\SalesOrder\Repository\RepositorySQL\uSalesOrder.Repository.SQL.pas"/>
         <DCCReference Include="Modules\SalesOrder\Repository\uSalesOrder.Repository.Interfaces.pas"/>
         <DCCReference Include="Modules\SalesOrder\Repository\uSalesOrder.Repository.Factory.pas"/>
         <DCCReference Include="Modules\SalesOrder\Domain\Validator\uSalesOrder.Validator.pas"/>
@@ -233,7 +233,7 @@
         </DCCReference>
         <DCCReference Include="Config\Migration\u04CreateSalesOrderProductTable.Migration.pas"/>
         <DCCReference Include="Modules\SalesOrder\SQLBuilder\uSalesOrderProduct.SQLBuilder.Interfaces.pas"/>
-        <DCCReference Include="Modules\SalesOrder\SQLBuilder\uSalesOrderProduct.SQLBuilder.MySQL.pas"/>
+        <DCCReference Include="Modules\SalesOrder\SQLBuilder\MySQL\uSalesOrderProduct.SQLBuilder.MySQL.pas"/>
         <DCCReference Include="Modules\SalesOrder\Domain\Entity\uSalesOrderProduct.Entity.Interfaces.pas"/>
         <DCCReference Include="Modules\SalesOrder\Domain\Entity\uSalesOrderProduct.Entity.pas"/>
         <DCCReference Include="Shared\Helpers\uThreadCustom.pas"/>
