@@ -114,7 +114,7 @@ end;
 
 function TCustomerSQLBuilderMySQL.SelectAllWithFilter(APageFilter: IPageFilter): TOutPutSelectAllFilter;
 begin
-  Result := TSelectWithFilter.SelectAllWithFilter(APageFilter, SelectAll, 'brand.id', ddMySql);
+  Result := TSelectWithFilter.SelectAllWithFilter(APageFilter, SelectAll, 'customer.id', ddMySql);
 end;
 
 function TCustomerSQLBuilderMySQL.SelectById(AId: Int64): String;
