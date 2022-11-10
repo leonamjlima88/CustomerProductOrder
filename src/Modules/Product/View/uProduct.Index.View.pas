@@ -227,7 +227,7 @@ begin
   // Limite de Registros p/ Página
   edtNavLimitPerPage.Text := '50';
 
-  // Limpar Input de Pesquisa e Fazer Refresh
+  // Limpar Input de Pesquisa sem Fazer Refresh
   edtSearchValue.OnChange := nil;
   edtSearchValue.Clear;
   edtSearchValue.OnChange := edtSearchValueChange;

@@ -35,9 +35,6 @@ inherited CustomerIndexView: TCustomerIndexView
               end
               inherited pnlSearch2: TPanel
                 ExplicitWidth = 648
-                inherited lblSearch: TLabel
-                  Height = 15
-                end
               end
             end
             inherited pnlDbgrid: TPanel
@@ -128,9 +125,6 @@ inherited CustomerIndexView: TCustomerIndexView
           Top = 507
           ExplicitTop = 507
           ExplicitWidth = 648
-          inherited lblNavShowingRecords: TLabel
-            Height = 18
-          end
           inherited pnlNavFirst3: TPanel
             inherited pnlNavFirst2: TPanel
               inherited btnNavFirst: TSpeedButton
@@ -165,18 +159,8 @@ inherited CustomerIndexView: TCustomerIndexView
           end
           inherited pnlNavLimitPerPage: TPanel
             inherited pnlNavLimitPerPage2: TPanel
-              inherited lblNavLimitPerPage: TLabel
-                Height = 16
-              end
               inherited edtNavLimitPerPage: TEdit
                 OnExit = edtNavLimitPerPageExit
-              end
-            end
-          end
-          inherited Panel1: TPanel
-            inherited Panel2: TPanel
-              inherited Label1: TLabel
-                Height = 16
               end
             end
           end
@@ -209,7 +193,7 @@ inherited CustomerIndexView: TCustomerIndexView
               inherited pnlSearch5: TPanel
                 ExplicitWidth = 341
                 inherited lblSearchTitle: TLabel
-                  Width = 331
+                  Width = 207
                   Caption = 'Pesquise por Nome, Cidade, UF ou ID.'
                   ExplicitWidth = 207
                 end

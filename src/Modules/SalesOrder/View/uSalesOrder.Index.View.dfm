@@ -35,9 +35,6 @@ inherited SalesOrderIndexView: TSalesOrderIndexView
               end
               inherited pnlSearch2: TPanel
                 ExplicitWidth = 648
-                inherited lblSearch: TLabel
-                  Height = 15
-                end
               end
             end
             inherited pnlDbgrid: TPanel
@@ -128,9 +125,6 @@ inherited SalesOrderIndexView: TSalesOrderIndexView
           Top = 507
           ExplicitTop = 507
           ExplicitWidth = 648
-          inherited lblNavShowingRecords: TLabel
-            Height = 18
-          end
           inherited pnlNavFirst3: TPanel
             inherited pnlNavFirst2: TPanel
               inherited btnNavFirst: TSpeedButton
@@ -165,18 +159,8 @@ inherited SalesOrderIndexView: TSalesOrderIndexView
           end
           inherited pnlNavLimitPerPage: TPanel
             inherited pnlNavLimitPerPage2: TPanel
-              inherited lblNavLimitPerPage: TLabel
-                Height = 16
-              end
               inherited edtNavLimitPerPage: TEdit
                 OnExit = edtNavLimitPerPageExit
-              end
-            end
-          end
-          inherited Panel1: TPanel
-            inherited Panel2: TPanel
-              inherited Label1: TLabel
-                Height = 16
               end
             end
           end
@@ -221,7 +205,7 @@ inherited SalesOrderIndexView: TSalesOrderIndexView
               inherited pnlSearch5: TPanel
                 ExplicitWidth = 341
                 inherited lblSearchTitle: TLabel
-                  Width = 331
+                  Width = 260
                   Caption = 'Pesquise por N'#186' do Pedido ou Nome do Cliente.'
                   ExplicitWidth = 260
                 end
@@ -718,8 +702,8 @@ inherited SalesOrderIndexView: TSalesOrderIndexView
               object imgFilterLocaCustomer: TImage
                 Left = 0
                 Top = 0
-                Width = 24
-                Height = 24
+                Width = 18
+                Height = 18
                 Align = alClient
                 AutoSize = True
                 Center = True
@@ -740,8 +724,6 @@ inherited SalesOrderIndexView: TSalesOrderIndexView
                   BA02035FC005512468860000000049454E44AE426082}
                 OnClick = imgFilterLocaCustomerClick
                 ExplicitTop = 14
-                ExplicitWidth = 18
-                ExplicitHeight = 18
               end
             end
           end

@@ -264,7 +264,7 @@ begin
   edtFilterCreatedAtStart.Date := StartOfTheMonth(Now);
   edtFilterCreatedAtEnd.Date   := EndOfTheMonth(Now);
 
-  // Limpar Input de Pesquisa e Fazer Refresh
+  // Limpar Input de Pesquisa sem Fazer Refresh
   edtSearchValue.OnChange := nil;
   edtSearchValue.Clear;
   edtSearchValue.OnChange := edtSearchValueChange;
