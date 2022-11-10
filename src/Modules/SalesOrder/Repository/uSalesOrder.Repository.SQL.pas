@@ -102,7 +102,6 @@ begin
       .NavNext                (not (APageFilter.CurrentPage = lLastPageNumber))
       .NavLast                (not (APageFilter.CurrentPage = lLastPageNumber));
   end;
-  lQry.Close;
 end;
 
 function TSalesOrderRepositorySQL.Index: TList<ISalesOrderEntity>;
