@@ -96,7 +96,7 @@ begin
   FQry.Open(TMigrationHelper.SQLLocateMigrationTable(
     FConn.DriverDB,
     FConn.DataBaseName,
-    'brand'
+    'customer'
   ));
   if not FQry.DataSet.IsEmpty then
   begin
