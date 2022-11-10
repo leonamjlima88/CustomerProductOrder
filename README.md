@@ -24,7 +24,7 @@ Neste projeto será encontrado design patterns como Controller, Service, Reposit
 
 Também foi criado um centralizador de exceções.
 
-Classe genérica para consulta de dados para qualquer tabela do sistema.
+Classe genérica para consulta de dados para qualquer tabela do sistema. Todas as consultas são paginadas e não mantém conexão com o banco de dados.
 
 Repositório totalmente flexivel para troca de driver de banco de dados a qualquer momento.
 
