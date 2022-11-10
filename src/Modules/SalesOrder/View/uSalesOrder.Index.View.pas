@@ -142,8 +142,8 @@ begin
   if not dtsIndex.DataSet.Active then Exit;
   if not (dtsIndex.DataSet.RecordCount > 0) then Exit;
 
-  // Mensagem de Sim/Não
-  if not (TYesOrNoView.AShowModal('Deseja apagar item selecionado?', 'Exclusão') = mrOK) then
+  // Mensagem de Sim/NÃ£o
+  if not (TYesOrNoView.AShowModal('Deseja apagar item selecionado?', 'ExclusÃ£o') = mrOK) then
     Exit;
 
   Try
@@ -211,28 +211,28 @@ procedure TSalesOrderIndexView.btnNavIndexClick(Sender: TObject);
 begin
   inherited;
 
-  // Primeira página
+  // Primeira pÃ¡gina
   if (Sender = btnNavFirst) then
   begin
     DoSearch;
     Exit;
   end;
 
-  // Voltar página
+  // Voltar pÃ¡gina
   if (Sender = btnNavPrior) then
   begin
     DoSearch(THlp.StrInt(edtNavCurrentPage.Text)-1);
     Exit;
   end;
 
-  // Próxima Página
+  // PrÃ³xima PÃ¡gina
   if (Sender = btnNavNext) then
   begin
     DoSearch(THlp.StrInt(edtNavCurrentPage.Text)+1);
     Exit;
   end;
 
-  // Última página
+  // Ãšltima pÃ¡gina
   if (Sender = btnNavLast) then
   begin
     DoSearch(THlp.StrInt(edtNavLastPageNumber.Text));
@@ -254,7 +254,7 @@ end;
 
 procedure TSalesOrderIndexView.CleanFilter;
 begin
-  // Limite de Registros p/ Página
+  // Limite de Registros p/ PÃ¡gina
   edtNavLimitPerPage.Text := '50';
 
   // Limpar campos de filtro
@@ -384,7 +384,7 @@ begin
     // -------------------------------------------------------------------------
     // Filtro Lateral
     // -------------------------------------------------------------------------
-    // Número do Pedido
+    // NÃºmero do Pedido
     if (THlp.StrInt(edtFilterId.Text) > 0) then
       lPageFilter.AddWhere('sales_order.id',  coEqual, String(edtFilterId.Text).trim);
 
@@ -392,7 +392,7 @@ begin
     if (THlp.StrInt(edtFilterCustomerId.Text) > 0) then
       lPageFilter.AddWhere('sales_order.customer_id',  coEqual, String(edtFilterCustomerId.Text).trim);
 
-    // Período de Emissão
+    // PerÃ­odo de EmissÃ£o
     if (edtFilterCreatedAtStart.Date > 0) and (edtFilterCreatedAtEnd.Date > 0) then
     begin
       lAux   := THlp.FormatDateTimeWithFirstHour(edtFilterCreatedAtStart.Date);
@@ -401,24 +401,6 @@ begin
         .AddWhere('sales_order.created_at', coGreaterOrEqual, lAux)
         .AddWhere('sales_order.created_at', coLessOrEqual,    lAux2);
     end;
-
-//function dateSQL(aDate: TDateTime; ADriverDB: String): String;
-//begin
-//  Result := '0000/00/00';
-//  ADriverDB := AnsiUpperCase(Copy(ADriverDB,1,1));
-//
-//  Try
-//    if (ADriverDB = 'F') then
-//      Result := '''' + FormatDateTime('MM/DD/YYYY', aDate) + '''';
-//
-//    if (ADriverDB = 'M') then
-//      Result := '''' + FormatDateTime('YYYY/MM/DD', aDate) + '''';
-//  Except
-//    Result := '0000/00/00';
-//    EXIT;
-//  End;
-//end;
-
 
     // -------------------------------------------------------------------------
 
@@ -508,21 +490,21 @@ begin
 
   Try
     pnlBackground.Enabled := False;
-    if not InputQuery('Cancelar/Deletar Pedido', 'Informe o Nº do Pedido', lSalesOrderId) then Exit;
+    if not InputQuery('Cancelar/Deletar Pedido', 'Informe o NÂº do Pedido', lSalesOrderId) then Exit;
 
     lSalesOrderEntity := TSalesOrderController.Make.Show(THlp.StrInt(lSalesOrderId));
     if not Assigned(lSalesOrderEntity) then
     begin
-      NotificationView.Execute('Pedido não encontrado! Cód: ' + lSalesOrderId, tneError);
+      NotificationView.Execute('Pedido nÃ£o encontrado! CÃ³d: ' + lSalesOrderId, tneError);
       Exit;
     end;
 
-    // Mensagem de Sim/Não
-    if not (TYesOrNoView.AShowModal('Deseja deletar registro com número: ' + lSalesOrderId + '?') = MrOK) then Exit;
+    // Mensagem de Sim/NÃ£o
+    if not (TYesOrNoView.AShowModal('Deseja deletar registro com nÃºmero: ' + lSalesOrderId + '?') = MrOK) then Exit;
 
     // Deletar Registro
     TSalesOrderController.Make.Delete(THlp.StrInt(lSalesOrderId));
-    NotificationView.Execute('Pedido Nº ' + lSalesOrderId + ' foi deletado', tneError);
+    NotificationView.Execute('Pedido NÂº ' + lSalesOrderId + ' foi deletado', tneError);
 
     // Atualizar Listagem
     DoSearch;
@@ -540,12 +522,12 @@ begin
 
   Try
     pnlBackground.Enabled := False;
-    if not InputQuery('Consultar Pedido', 'Informe o Nº do Pedido', lSalesOrderId) then Exit;
+    if not InputQuery('Consultar Pedido', 'Informe o NÂº do Pedido', lSalesOrderId) then Exit;
 
     lSalesOrderEntity := TSalesOrderController.Make.Show(THlp.StrInt(lSalesOrderId));
     if not Assigned(lSalesOrderEntity) then
     begin
-      NotificationView.Execute('Pedido não encontrado! Cód: ' + lSalesOrderId, tneError);
+      NotificationView.Execute('Pedido nÃ£o encontrado! CÃ³d: ' + lSalesOrderId, tneError);
       Exit;
     end;
 
