@@ -84,7 +84,7 @@ begin
     ADtsSalesOrder.FieldByName('customer_city').AsString  := AEntity.customer.city;
     ADtsSalesOrder.FieldByName('customer_state').AsString := AEntity.customer.state;
 
-    if not (ADtsSalesOrder.State in [dsEdit, dsInsert]) then
+    if (ADtsSalesOrder.State in [dsEdit, dsInsert]) then
       ADtsSalesOrder.Post;
   end;
 

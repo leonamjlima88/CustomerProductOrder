@@ -29,7 +29,8 @@ end;
 
 class procedure TProductMapper.EntityToDataSet(const AEntity: IProductEntity; const ADataSet: TDataSet);
 begin
-  if not (ADataSet.State in [dsEdit]) then ADataSet.Edit;
+  if not (ADataSet.State in [dsEdit]) then
+    ADataSet.Edit;
 
   ADataSet.FieldByName('id').AsLargeInt         := AEntity.id;
   ADataSet.FieldByName('name').AsString         := AEntity.name;
@@ -37,7 +38,8 @@ begin
   ADataSet.FieldByName('created_at').AsDateTime := AEntity.created_at;
   ADataSet.FieldByName('updated_at').AsDateTime := AEntity.updated_at;
 
-  if not (ADataSet.State in [dsEdit, dsInsert]) then ADataSet.Post;
+  if (ADataSet.State in [dsEdit, dsInsert]) then
+    ADataSet.Post;
 end;
 
 end.
